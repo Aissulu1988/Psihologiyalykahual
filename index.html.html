@@ -1,0 +1,158 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!DOCTYPE html>
+<html lang="kk"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Әділ таразы</title>
+<style>
+:root{color-scheme:dark;box-sizing:border-box}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;overflow:hidden;background:#020b1f}
+body{font-family:"Palatino Linotype","Book Antiqua",Georgia,"Times New Roman",serif;color:#fff3d6}
+#stage{position:absolute;left:50%;top:50%;width:1600px;height:900px;transform-origin:center;overflow:hidden;
+background:radial-gradient(ellipse at 50% 52%,#0d3b78 0,#07224f 45%,#020b1f 85%),
+repeating-linear-gradient(45deg,rgba(255,215,120,.035) 0 2px,transparent 2px 36px),repeating-linear-gradient(-45deg,rgba(255,215,120,.035) 0 2px,transparent 2px 36px)}
+#stage:before{content:"";position:absolute;left:420px;top:690px;width:760px;height:120px;border-radius:50%;background:radial-gradient(ellipse,rgba(0,0,0,.55),transparent 70%)}
+.ui{position:absolute;left:0;width:100%;text-align:center;transition:opacity 1s;z-index:4;pointer-events:none}
+#t1{top:10px;font-size:56px;font-weight:700;letter-spacing:1px;background:linear-gradient(180deg,#fff6c9,#e8b840 55%,#9a6a14);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 4px 6px rgba(0,0,0,.7))}
+#t2{top:80px;font-size:30px;font-style:italic;color:#bff7ee;letter-spacing:3px;text-shadow:0 0 14px rgba(0,229,200,.6)}
+#t2:before,#t2:after{content:"◆";color:#e8b840;margin:0 18px;font-size:18px;font-style:normal}
+#cn{top:808px;font-size:28px;color:#ffe9a8}
+#cnt b{color:#fff;font-size:34px}
+#bar{display:flex;gap:6px;justify-content:center;margin-top:6px}
+#bar i{width:24px;height:7px;border-radius:4px;background:#12335e;box-shadow:inset 0 1px 2px #000;transition:.5s}
+#bar i.on{background:linear-gradient(#fff1a8,#d9a22b);box-shadow:0 0 10px #ffd978}
+#in{top:858px;font-size:24px;color:#9fe9df;letter-spacing:.5px}
+.done #cn,.done #in{opacity:0}
+#world{position:absolute;inset:0;transform-origin:800px 470px;transition:transform 2.2s cubic-bezier(.3,.7,.2,1),opacity 2s}
+#world.fin{transform:scale(1.5);opacity:.45}
+#sc{position:absolute;left:0;top:0;width:1600px;height:900px;filter:drop-shadow(0 22px 20px rgba(0,0,0,.65));pointer-events:none}
+#sc.glow{animation:glow 3s ease-in-out infinite}
+@keyframes glow{50%{filter:drop-shadow(0 0 26px rgba(255,210,100,.95)) drop-shadow(0 22px 20px rgba(0,0,0,.6))}}
+.med{position:absolute;left:0;top:0;width:90px;height:90px;padding:0;border:0;background:none;cursor:pointer;perspective:400px;z-index:2;transform-origin:center}
+.med.fly{transition:transform 1.1s cubic-bezier(.25,.8,.25,1)}
+.med.placed{z-index:3}
+.fl{display:block;animation:fl 4s ease-in-out infinite}
+.placed .fl{animation:none}
+@keyframes fl{50%{transform:translateY(-9px)}}
+.body{display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;width:90px;height:90px;border-radius:16px;transition:transform .35s,filter .35s;transform-style:preserve-3d;
+background:radial-gradient(circle at 32% 26%,var(--a),var(--b) 78%);color:var(--o);
+box-shadow:0 0 0 4px #e3b94f,0 0 0 7px #7a5416,0 16px 24px rgba(0,0,0,.6),inset 0 -9px 15px rgba(0,0,0,.4),inset 0 7px 10px rgba(255,255,255,.55)}
+.body:after{content:"";position:absolute;left:10%;top:6%;width:56%;height:24%;border-radius:50%;background:linear-gradient(rgba(255,255,255,.6),transparent);transform:rotate(-12deg)}
+.body .s{font-size:30px;font-weight:700;line-height:1;text-shadow:0 1px 0 rgba(255,255,255,.35),0 -1px 0 rgba(0,0,0,.35)}
+.body .n{font-size:13px;margin-top:5px;font-weight:700;letter-spacing:.3px}
+.med:not(.placed):hover .body,.med:not(.placed):focus-visible .body{transform:scale(1.2) rotateX(14deg) translateZ(30px);filter:brightness(1.15) drop-shadow(0 0 22px #ffd978)}
+.med.placed:hover .body{filter:brightness(1.25)}
+.t0{--a:#fff0b0;--b:#b8860b;--o:#4a2e00}.t1{--a:#8ff7e8;--b:#087f86;--o:#fff4c2}.t2{--a:#7cf0b0;--b:#0a6b45;--o:#fff0b8}
+.t3{--a:#8fb8ff;--b:#0b3a9c;--o:#ffe08a}.t4{--a:#f0d2a6;--b:#6b4222;--o:#fff3d6}
+.wave{position:absolute;left:580px;top:110px;width:440px;height:440px;border-radius:50%;border:5px solid #ffe08a;box-shadow:0 0 30px #ffd978,inset 0 0 30px #ffd978;opacity:0;pointer-events:none}
+.wave.on{animation:wv 2.6s ease-out 1}
+@keyframes wv{0%{transform:scale(.3);opacity:.95}100%{transform:scale(3.2);opacity:0}}
+#ov{position:absolute;inset:0;background:rgba(2,9,26,.72);display:none;align-items:center;justify-content:center;z-index:10;perspective:1200px}
+#ov.on{display:flex}
+#card{position:relative;width:900px;padding:62px 80px 54px;text-align:center;border-radius:26px;animation:cd .7s cubic-bezier(.2,.9,.2,1);
+background:radial-gradient(ellipse at 50% 0,#14509c,#082a5e 60%,#051a3e);border:8px solid #d9a22b;
+box-shadow:0 0 0 3px #7a5416,0 0 60px rgba(255,210,100,.5),0 40px 60px rgba(0,0,0,.7),inset 0 0 40px rgba(0,0,0,.5)}
+@keyframes cd{from{transform:rotateY(-80deg) scale(.6);opacity:0}}
+#card:before{content:"";position:absolute;inset:14px;border:2px dashed #5ff2e0;border-radius:16px;pointer-events:none;opacity:.75}
+#card svg.c{position:absolute;width:64px;height:64px;color:#ffd978;filter:drop-shadow(0 0 6px #ffd978)}
+#mat{margin:0 0 18px;font-size:28px;font-style:italic;color:#9fe9df;letter-spacing:1px}
+#mat b{font-style:normal;color:#ffd978}
+#msg{margin:0 0 34px;font-size:38px;line-height:1.35;color:#fff7dc;text-shadow:0 2px 6px rgba(0,0,0,.7)}
+.btn{font:inherit;font-size:26px;padding:14px 44px;border-radius:40px;border:3px solid #7a5416;cursor:pointer;color:#3a2400;background:linear-gradient(#fff1a8,#e0a92f 60%,#a8741a);box-shadow:0 8px 16px rgba(0,0,0,.5),inset 0 2px 3px #fff8;transition:transform .2s}
+.btn:hover{transform:translateY(-3px) scale(1.04)}
+#fnl{position:absolute;inset:0;display:none;align-items:center;justify-content:center;z-index:8;opacity:0;transition:opacity 1.6s;background:radial-gradient(ellipse at 50% 50%,rgba(2,10,30,.9) 30%,transparent 70%)}
+#fnl.on{display:flex}#fnl.show{opacity:1}
+#fw{width:1100px;text-align:center}
+#fq{margin:0 0 22px;font-size:34px;font-style:italic;color:#bff7ee;text-shadow:0 0 14px rgba(0,229,200,.6)}
+#ft{margin:0 0 44px;font-size:48px;line-height:1.4;font-weight:700;background:linear-gradient(180deg,#fff9d8,#f0c24a 70%,#c58a1c);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 3px 8px rgba(0,0,0,.8))}
+#fx{position:fixed;inset:0;pointer-events:none;z-index:50}
+</style></head><body>
+<div id="stage">
+ <div id="world"><svg id="sc" viewBox="0 0 1600 900"></svg><div class="wave"></div><div class="wave"></div><div class="wave"></div></div>
+ <div class="ui" id="t1">Әділ таразы</div>
+ <div class="ui" id="t2">Әділдік және жауапкершілік</div>
+ <div class="ui" id="cn"><div id="cnt"></div><div id="bar"></div></div>
+ <div class="ui" id="in">Бір текшені таңда. Таразыға өз үлесіңді қос!</div>
+ <div id="ov"><div id="card"><svg class="c" style="left:14px;top:14px" viewBox="0 0 100 100"></svg><svg class="c" style="right:14px;top:14px;transform:scaleX(-1)" viewBox="0 0 100 100"></svg><svg class="c" style="left:14px;bottom:14px;transform:scaleY(-1)" viewBox="0 0 100 100"></svg><svg class="c" style="right:14px;bottom:14px;transform:scale(-1)" viewBox="0 0 100 100"></svg><p id="mat"></p><p id="msg"></p><button class="btn" id="ok">Жалғастыру</button></div></div>
+ <div id="fnl"><div id="fw"><p id="fq">«Жауапкершілік адамды адам етеді»</p><p id="ft">Таразы теңелді! Әділ болайық, ісімізге жауапты болайық — сонда біліміміз де салмақты болады. Ендеше, сабақты бастайық!</p><button class="btn" id="rs">Қайта бастау</button></div></div>
+</div>
+<canvas id="fx"></canvas>
+<script>
+/* [белгі, атауы, тығыздығы кг/м³, ой] */
+const D=[
+["Au","Алтын",19300,"Алтын тығыз болғандықтан құнды. Сенің білімің де тығыз болсын — терең әрі берік!"],
+["Fe","Темір",7800,"Көлемі бірдей болса да, массасы әртүрлі. Сырт келбет емес, ішкі мазмұн маңызды!"],
+["Cu","Мыс",8900,"Таразы ешкімді алаламайды. Сен де әділ бол: досыңды да, өзіңді де шынайы бағала."],
+["Al","Алюминий",2700,"Ұқыпты есептеу — жауапкершіліктің белгісі. Әр санды, әр бірлікті тексер!"],
+["Ag","Күміс",10500,"Тығыздық — заттың ішкі «салмағы». Сенің ішкі салмағың — сөзіңе берік болуың."],
+["Pb","Қорғасын",11300,"Қателессең — қайта есепте. Қателігін мойындау да — жауапкершілік."],
+["Sn","Қалайы",7300,"ρ = m / V. Еңбек көп, ой терең болса — нәтиже де «тығыз» болады!"],
+["Zn","Мырыш",7100,"Топтағы әр мүше — бір текше. Біреуі жетпесе, таразы теңелмейді."],
+["Ш","Шыны",2500,"Әділ сатушы шын массаны айтады. Әділ оқушы шын жауабын айтады."],
+["К","Кірпіш",1800,"Жүкті шамадан тыс артпа: өз мүмкіндігіңді біл, алдын ала жоспарла."],
+["H₂O","Су",1000,"Кеме суда жүзеді — тепе-теңдікті сақтайды. Сен де ортақ іске үлесіңді қос."],
+["Мұз","Мұз",900,"Мұз суда жүзеді, себебі тығыздығы аз. Әркімнің өз орны бар — бір-біріңді құрметте."],
+["Май","Май",900,"Досыңа көмектессең, ортақ біліміміздің салмағы артады."],
+["Ағ","Ағаш",700,"Табандылық білімнің «массасын», ұқыптылық есептің дәлдігін арттырады."],
+["М","Мәрмәр",2700,"Әділдік — таразының екі басы тең болғанда. Өзгеге де, өзіңе де бірдей талап қой."],
+["Т","Тығын",240,"«Жауапкершілік адамды адам етеді». Бүгін соны өз ісіңмен дәлелде!"]];
+const N=D.length;
+const $=s=>document.querySelector(s),st=$('#stage'),world=$('#world'),ov=$('#ov'),msg=$('#msg'),fnl=$('#fnl'),sc=$('#sc');
+const CX=800,CY=470,RX=680,RY=300,SZ=90,SC=.42;
+const PX=800,PY=300,HL=290,HG=170;      /* тірек нүктесі, иін ұзындығы, табақ ілгіші */
+const H='M50 76C26 76 16 52 29 39C40 29 57 37 52 49C50 55 42 54 43 49';
+function orn(){return `<g fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="${H}"/><path d="${H}" transform="translate(100 0) scale(-1 1)"/><circle cx="50" cy="83" r="3.5" fill="currentColor"/></g>`}
+document.querySelectorAll('svg.c').forEach(e=>e.innerHTML=orn());
+const fmt=n=>String(n).replace(/\B(?=(\d{3})+(?!\d))/g,' ');
+
+/* таразы */
+let ang=0,target=0;
+function ends(a){const r=a*Math.PI/180,c=Math.cos(r),s=Math.sin(r);return{L:{x:PX-HL*c,y:PY-HL*s},R:{x:PX+HL*c,y:PY+HL*s}}}
+const DEF='<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff1a8"/><stop offset=".5" stop-color="#d9a22b"/><stop offset="1" stop-color="#8a5f12"/></linearGradient><linearGradient id="w" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d9a35f"/><stop offset=".5" stop-color="#7a4a1e"/><stop offset="1" stop-color="#e0b070"/></linearGradient><radialGradient id="pan" cx=".5" cy=".2" r=".9"><stop offset="0" stop-color="#fff1a8"/><stop offset=".6" stop-color="#c8901f"/><stop offset="1" stop-color="#6b4710"/></radialGradient></defs>';
+function pan(e){const y=e.y+HG;return `<g><line x1="${e.x}" y1="${e.y}" x2="${e.x-110}" y2="${y}" stroke="#e8c25a" stroke-width="2.5"/><line x1="${e.x}" y1="${e.y}" x2="${e.x+110}" y2="${y}" stroke="#e8c25a" stroke-width="2.5"/><line x1="${e.x}" y1="${e.y}" x2="${e.x}" y2="${y}" stroke="#e8c25a" stroke-width="1.5" opacity=".6"/><path d="M${e.x-125} ${y} Q${e.x} ${y+58} ${e.x+125} ${y} Z" fill="url(#pan)" stroke="#7a5416" stroke-width="3"/><ellipse cx="${e.x}" cy="${y}" rx="125" ry="9" fill="#ffe9a8" opacity=".55"/><circle cx="${e.x}" cy="${e.y}" r="9" fill="url(#g)" stroke="#7a5416" stroke-width="2"/></g>`}
+function draw(){const e=ends(ang);let s=DEF;
+ s+=`<path d="M${PX-150} 720 L${PX+150} 720 L${PX+110} 690 L${PX-110} 690 Z" fill="url(#w)" stroke="url(#g)" stroke-width="4"/>`;
+ s+=`<rect x="${PX-14}" y="${PY}" width="28" height="395" rx="8" fill="url(#w)" stroke="#e8c25a" stroke-width="2"/><rect x="${PX-3}" y="${PY+10}" width="6" height="375" fill="url(#g)"/>`;
+ s+=`<path d="M${PX} ${PY-70} L${PX-14} ${PY-30} L${PX+14} ${PY-30} Z" fill="url(#g)" stroke="#7a5416" stroke-width="2"/>`;
+ s+=`<g transform="rotate(${ang} ${PX} ${PY})"><rect x="${PX-HL-10}" y="${PY-9}" width="${2*HL+20}" height="18" rx="9" fill="url(#w)" stroke="#e8c25a" stroke-width="2"/><rect x="${PX-HL}" y="${PY-1.5}" width="${2*HL}" height="3" fill="url(#g)"/></g>`;
+ s+=pan(e.L)+pan(e.R)+`<circle cx="${PX}" cy="${PY}" r="24" fill="url(#w)" stroke="url(#g)" stroke-width="4"/><circle cx="${PX}" cy="${PY}" r="10" fill="url(#g)"/>`;
+ sc.innerHTML=s}
+
+/* текшелер */
+const meds=[],used=Array(N).fill(0),side=Array(N),slot=Array(N),landed=Array(N).fill(0);let count=0,busy=false,cur=-1,cntL=0,cntR=0;
+const home=i=>{const a=(-90+180/N+360/N*i)*Math.PI/180;return{x:CX+RX*Math.cos(a)-SZ/2,y:CY+RY*Math.sin(a)-SZ/2}};
+function slotPos(i,a){const e=ends(a)[side[i]],k=slot[i],col=k%4,row=k>>2;const w=SZ*SC;return{x:e.x+(col-1.5)*(w+8)-SZ/2,y:e.y+HG-6-w/2-row*(w+6)-SZ/2}}
+function setT(m,p,s){m.style.transform=`translate(${p.x}px,${p.y}px) scale(${s})`}
+for(let i=0;i<N;i++){const b=document.createElement('button');b.className='med t'+i%5;b.setAttribute('aria-label',D[i][1]);
+ b.innerHTML=`<span class="fl" style="animation-delay:${-i*.37}s"><span class="body"><span class="s">${D[i][0]}</span><span class="n">${fmt(D[i][2])}</span></span></span>`;
+ setT(b,home(i),1);b.onclick=()=>pick(i);world.appendChild(b);meds.push(b)}
+const bar=$('#bar');bar.innerHTML='<i></i>'.repeat(N);
+function upd(){$('#cnt').innerHTML=`Таразыға қосылған үлес: <b>${count}</b> / ${N}`;[...bar.children].forEach((e,i)=>e.classList.toggle('on',i<count))}
+function pick(i){if(busy)return;busy=true;cur=i;burst(meds[i],36,3);
+ $('#mat').innerHTML=`${D[i][1]} · <b>ρ = ${fmt(D[i][2])} кг/м³</b>`;msg.textContent=D[i][3];ov.classList.remove('on');void ov.offsetWidth;ov.classList.add('on');$('#ok').focus()}
+$('#ok').onclick=()=>{if(cur<0)return;const i=cur,m=meds[i];ov.classList.remove('on');cur=-1;
+ if(used[i]){busy=false;return}
+ used[i]=1;count++;
+ if(cntL<=cntR){side[i]='L';slot[i]=cntL++}else{side[i]='R';slot[i]=cntR++}
+ m.classList.add('placed','fly');setT(m,slotPos(i,ang),SC);upd();
+ setTimeout(()=>{m.classList.remove('fly');landed[i]=1;burst(m,30,2.5);target=Math.max(-14,Math.min(14,(cntL-cntR)*-9));busy=false;
+  if(count==N){busy=true;setTimeout(finale,1400)}},1100)};
+function finale(){st.classList.add('done');sc.classList.add('glow');document.querySelectorAll('.wave').forEach(w=>w.classList.add('on'));
+ meds.forEach((m,k)=>setTimeout(()=>burst(m,14,2.5),k*90));
+ setTimeout(()=>{world.classList.add('fin');fnl.classList.add('on');setTimeout(()=>fnl.classList.add('show'),50)},2200)}
+$('#rs').onclick=()=>{used.fill(0);landed.fill(0);count=0;cntL=cntR=0;busy=false;cur=-1;target=0;
+ meds.forEach((m,i)=>{m.classList.remove('placed');m.classList.add('fly');setT(m,home(i),1);setTimeout(()=>m.classList.remove('fly'),1100)});
+ world.classList.remove('fin');fnl.classList.remove('show','on');st.classList.remove('done');ov.classList.remove('on');sc.classList.remove('glow');document.querySelectorAll('.wave').forEach(w=>w.classList.remove('on'));upd()};
+
+/* бөлшектер + анимация */
+const cv=$('#fx'),cx=cv.getContext('2d');let P=[];
+function fit(){const s=Math.min(innerWidth/1600,innerHeight/900);st.style.transform=`translate(-50%,-50%) scale(${s})`;cv.width=innerWidth;cv.height=innerHeight}
+function burst(el,n,sp){const r=el.getBoundingClientRect(),x=r.left+r.width/2,y=r.top+r.height/2;for(let i=0;i<n;i++){const a=Math.random()*6.283,s=Math.random()*sp*2+.6;P.push({x,y,vx:Math.cos(a)*s,vy:Math.sin(a)*s-.6,l:1,r:1+Math.random()*2.6})}}
+(function tick(){
+ if(Math.abs(target-ang)>.01){ang+=(target-ang)*.06;draw();for(let i=0;i<N;i++)if(landed[i])setT(meds[i],slotPos(i,ang),SC)}
+ cx.clearRect(0,0,cv.width,cv.height);P=P.filter(p=>p.l>0);cx.shadowBlur=10;cx.shadowColor='#ffd978';cx.fillStyle='#ffe08a';
+ P.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=.03;p.l-=.013;cx.globalAlpha=Math.max(p.l,0);cx.beginPath();cx.arc(p.x,p.y,p.r,0,7);cx.fill()});requestAnimationFrame(tick)})();
+addEventListener('resize',fit);fit();draw();upd();
+</script></body></html>
+
+</body></html>
